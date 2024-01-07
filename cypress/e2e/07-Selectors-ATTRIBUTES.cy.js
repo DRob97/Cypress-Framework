@@ -1,8 +1,24 @@
 /// <reference types="cypress"/>
 
 describe('Selector | ATTRIBUTES', () => {
-    it('Validate Frontend Html Elements Paragraphs', () => {
+    // Runs once before the suite
+    before(() => {
+        cy.log('Execution of Selector | Attributes Started!!!')
+    })
+    // Runs once after the suite
+    after(() => {
+        cy.log('Execution of Selector | Attributes Completed!!!')
+    })
+    // Runs before each test
+    beforeEach(() => {
         cy.visit('https://techglobal-training.com/frontend/html-elements')
+    })
+    // Runs after each test
+    afterEach(() => {
+        cy.log('You can put all your assertions for each test here!')
+    })
+    /////////////////////////////////////////////////////////////////////////////////////
+    it('Validate Frontend Html Elements Paragraphs', () => {
         // Select all paragraphs
         cy.get('p')
         // Select all paragraphs that have id attribute
@@ -12,7 +28,6 @@ describe('Selector | ATTRIBUTES', () => {
     })
 
     it('Validate Frontend Html Elements Buttons', () => {
-        cy.visit('https://techglobal-training.com/frontend/html-elements')
         // Validate that there are 3 button elements
         cy.get('button').should('have.length', 3)
         // Validate that there are 2 button elements with id attribute
