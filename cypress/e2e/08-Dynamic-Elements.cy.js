@@ -1,7 +1,7 @@
 /// <reference types="cypress"/>
 
 describe('Dynamic Elements | CSS contains, starts-with, ends-with', () => {
-    it('Validate TechGlobal Dynamic Elements', () => {
+    it('Validate TechGlobal Dynamic Elements 1', () => {
         cy.visit('https://techglobal-training.com/frontend')
 
         cy.get('#card-2').click()
