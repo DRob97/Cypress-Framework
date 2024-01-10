@@ -24,17 +24,18 @@ describe('Form Elements Project', () => {
     it('Test Case 03 - Validate the "Gender" radio button', () => {
         cy.get('form > :nth-child(2) > div > :nth-child(1)').should('have.text', 'Gender *')
         cy.get('form > :nth-child(2) > div > :nth-child(2) > input').should('have.attr', 'required')
-        // cy.get('.mr-1').should('be.oneOf', ["Male", "Female", "Prefer not to disclose"])
-        cy.get('form > :nth-child(2) > div > :nth-child(2)').should('have.text', 'Male')
-        cy.get('form > :nth-child(2) > div > :nth-child(3)').should('have.text', 'Female')
-        cy.get('form > :nth-child(2) > div > :nth-child(4)').should('have.text', 'Prefer not to disclose')
+        // cy.get('form > :nth-child(2) > div > label').should('have.attr', '.radio')
+        // .and('be.oneOf', ["Male", "Female", "Prefer not to disclose"])
+        cy.get('form > :nth-child(2) > div > :nth-child(2)').first().should('have.text', 'Male')
+        .next().should('have.text', 'Female')
+        .next().should('have.text', 'Prefer not to disclose')
 
         cy.get('.mr-1').should('be.enabled').and('not.be.checked')
 
         cy.get('form > :nth-child(2) > div > :nth-child(2) > input').click()
         cy.get('form > :nth-child(2) > div > :nth-child(3) > input').should('be.enabled').and('not.be.checked')
         cy.get('form > :nth-child(2) > div > :nth-child(4) > input').should('be.enabled').and('not.be.checked')
-        // Put step 7 here
+        
         cy.get('form > :nth-child(2) > div > :nth-child(3) > input').click()
         cy.get('form > :nth-child(2) > div > :nth-child(2) > input').should('be.enabled').and('not.be.checked')
         cy.get('form > :nth-child(2) > div > :nth-child(4) > input').should('be.enabled').and('not.be.checked')
