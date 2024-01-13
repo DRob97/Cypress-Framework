@@ -79,4 +79,88 @@ describe("Assertions", () => {
       // ** instead, use this **
       .should('not.exist')
     });
+  
+  
+    it('Explicit Assertons', () => {
+  
+      // This is explicit assertion
+      expect(true).equal(true)
+  
+      // this is a failure
+      // expect(cy.url()).equal(cy.url())
+  
+      cy.get('#main_heading').should('have.text', 'Html Elements')
+  
+      const el = cy.get('#main_heading')
+  
+      el.should('have.text', 'Html Elements')
+  
+  
+  
+      cy.get('#main_heading').invoke('text').then((element) => {
+          const el = element
+          cy.log(el.toUpperCase() + ' retrieved element')
+  
+          expect(el).equal('Html Elements')
+      })
+  
+  
+      cy.get('#main_heading').then(($ele) => {
+          const el = $ele.text()
+          cy.log(el.toUpperCase())
+          expect(el).to.equal('Html Elements')
+          expect(el).to.include('Html Elements')
+          expect(el).to.exist
+      })
+  
+  
+      cy.get('#main_heading').invoke('attr', 'id').then((attr) => {
+          expect(attr).to.equal('main_heading')
+      })
+  
+      cy.get('#main_heading').then(($el) => {
+          const attr = $el.attr('id')
+          expect(attr).to.equal('main_heading')
+      })
+  
+  
+      cy.get('[data-identifier="Paragraphs"] > p').then(($el) => {
+          // cy.log($el.length)
+  
+          expect($el).to.have.length(2)
+      })
+  
+      cy.get('#checkbox_1').then(($el) => {
+          expect($el).to.be.enabled
+          expect($el).to.be.visible
+          expect($el).not.to.be.checked
+      })
+  
+      // cy.get('#main_heading').should('have.css', 'color', 'rgb(105, 105, 105)')
+  
+  
+      cy.get('#main_heading').then(($el) => {
+          expect($el.css('color')).to.equal('rgb(105, 105, 105)')
+      })
+    })
+  
+    it('Validate Multiple Elements', () => {
+  
+      cy.get('#hello_paragraph').should('be.visible').and('have.text', 'Hello World!')
+      cy.get('#testing_paragraph').should('be.visible').and('have.text', 'I like automation testing!')
+  
+      cy.get('[data-identifier="Paragraphs"] > p').as('paragraps')
+  
+      const arr = ['Hello World!', 'I like automation testing!']
+  
+      for(let i = 0; i < arr.length; i++){
+          cy.get('@paragraps').eq(i).should('have.text', arr[i])
+      }
+  
+      cy.get('@paragraps').each(($el, index) => {
+          // cy.log($el.text() + `${index}. of the web element`)
+          expect($el.text()).to.equal(arr[index])
+          expect($el).to.be.visible
+      })
+    })
   });
