@@ -123,6 +123,11 @@ describe('Form Elements Project', () => {
     it('Test case 08 - Validate the "Consent" checkbox', () => {
         // cy.get('.checkbox')
         // .should('have.text', 'I give my consent to be contacted.')
+        // Validate the text of the "Consent" checkbox
+        cy.get('.checkbox').then(($el) => {
+            const element = $el.text()
+            expect(element.trim()).to.equal('I give my consent to be contacted.')
+        })
         // Assign path a reference name
         cy.get('input[type="checkbox"]').as('c-box')
         // Validate consent check-box is displayed and is required
@@ -169,13 +174,13 @@ describe('Form Elements Project', () => {
         // Click on "Consent" checkbox
         cy.get('input[type="checkbox"]')
         .click()
-        /*
+        
         // Click on "SUBMIT" button
         cy.get('.is-link')
         .click()
         // Verify expected message appears after submitting the form
         cy.get('.mt-5')
-        .should('be.visible')
-        */
+        .should('exist')
+        //*/
     })
 })
