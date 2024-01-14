@@ -193,8 +193,44 @@ describe("Assertions", () => {
     const headingTexts = ['Programming Languages', 'Automation Tools']
 
     cy.get('[data-identifier="Headings"] > h4').each(($el, index) => {
-        cy.wrap($el).should('have.text', headingTexts[index]).and('be.visible')
+      cy.wrap($el).should("have.text", headingTexts[index]).and("be.visible");
+    });
+
+    /**
+     * 1. On the Html Elements page
+     * 2. From the "Checkboxes" section, locate all checkboxes
+     * 3. Validate their texts with expected text
+     * 4. Validate checkboxes are visible, and enabled
+     */
+
+
+    const boxes = ['Apple', 'Microsoft', 'Tesla']
+
+    cy.get('#checkbox-button-group div').each(($el, index) => {
+        cy.wrap($el).find('label').should('have.text', boxes[index])
+        .parent().find('input').should('be.visible').and('be.enabled')
     })
 
+    /**
+     * 1. cy.get('#checkbox-button-group div')      =>  This returns 3 of 3 
+     * 2. First, validate label, because texts are inside the label
+     * 3. Using .find('label') method, we get label, and validate the text
+     */
   });
+
+  it.only('Assertion Practices', () => {
+
+    /**
+     * 1. Go to https://techglobal-training.com/frontend
+     * 2. Navigate to 'Html Elements' card
+     * 3. From the "Text Inputs" section
+     * 4. Validate text input 1 and text input 2 is enabled
+     * 5. Validate text input 1 and text input 2 is is not required
+     * 6. Enter your name and last name
+     */
+    const names = ['Dylan', 'Robertson']
+    cy.get('[data-identifier="Text Inputs"] input').each((el, index) => {
+      cy.wrap(el).type(names[index]).should('be.enabled').and('not.have.attr', 'required')
+    })
+    })
 });
