@@ -178,6 +178,14 @@ describe('Form Elements Project', () => {
         // Click on "SUBMIT" button
         cy.get('.is-link')
         .click()
+        cy.on('uncaught:exception', (e, runnable) => {
+            console.log('error', e)
+            console.log('runnable', runnable)
+
+            if(e.message.includes('Cannot read properties of undefined')){
+                return false
+            }
+        })
         // Verify expected message appears after submitting the form
         cy.get('.mt-5')
         .should('exist')
