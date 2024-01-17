@@ -3,7 +3,7 @@
 describe("Assertions", () => {
   beforeEach(() => {
     // This will fail if the page doesn't send text/html with 200 status
-    cy.visit("https://techglobal-training.com/frontend/");
+    cy.visit(`${Cypress.env('SITE_URL')}/frontend`)
     cy.get(".cards").contains("Html Elements").click();
   });
   it("Default Assertions", () => {
