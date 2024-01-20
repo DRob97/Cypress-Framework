@@ -1,0 +1,61 @@
+
+
+
+01-09-2024 Cypress Selectors
+
+RECAP:
+
+CSS Selectors 
+ID
+TAG
+CLASS
+ATTRIBUTES (*, ^, $)
+PARENT-CHILD
+
+
+Cypress Selectors
+cy.get()
+cy.contains()
+
+Working with CYPRESS SELECTORS for siblings:
+cy.get(selector).first()    -> it selects the first sibling of many
+cy.get(selector).last()     -> it selects the last sibling of many
+cy.get(selector).eq(index)  -> it selects the indexth sibling of many (index starts from zero)
+cy.get(selector).....next() -> it selects the next sibling of selected sibling
+cy.get(selector).....prev() -> it selects the previous sibling of selected sibling
+
+
+Working with CYPRESS SELECTORS for parent-child:
+cy.get('parentElement').children() // direct child
+cy.get('parentElement').find() // descendant child
+
+
+CSS Parent-child (direct child or descendant)
+cy.get('parentElement > childElement') // direct child
+cy.get('parentElement childElement') // descendant child
+
+ALIASING
+<p class="app-content-text-paragrahp-5">Hello</p>
+
+cy.get('.app-content-text-paragrahp-5').as('main-text')
+
+cy.get('@main-text').should('be.visible').and('have.text', 'Hello')
+
+
+XPATH vs CSS 
+-XPATH can move from child to parent but CSS cannot 
+-CSS is faster than XPATH 
+-Cypress has a selector allows moving up to tree (child to parent)
+
+
+
+<a href="https://www.facebook.com/techglobaleducation"/>
+a[href*="facebook"]
+
+
+TEST CASE:
+Go to https://www.wikipedia.org/
+Type and search for "Cypress"
+Validate the main heading equals "Cypress"
+Validate the title of the page contains "Cypress"
+Validate the url of the page contains "Cypress"
