@@ -3,7 +3,7 @@
 describe("Assertions", () => {
   beforeEach(() => {
     // This will fail if the page doesn't send text/html with 200 status
-    cy.visit(`${Cypress.env('SITE_URL')}/frontend`)
+    cy.visit(`${Cypress.env('SITE_URL')}/frontend`);
     cy.get(".cards").contains("Html Elements").click();
   });
   it("Default Assertions", () => {
@@ -190,7 +190,7 @@ describe("Assertions", () => {
      * 4. Validate these elements are visible.
      */
 
-    const headingTexts = ['Programming Languages', 'Automation Tools']
+    const headingTexts = ["Programming Languages", "Automation Tools"];
 
     cy.get('[data-identifier="Headings"] > h4').each(($el, index) => {
       cy.wrap($el).should("have.text", headingTexts[index]).and("be.visible");
@@ -203,23 +203,26 @@ describe("Assertions", () => {
      * 4. Validate checkboxes are visible, and enabled
      */
 
+    const boxes = ["Apple", "Microsoft", "Tesla"];
 
-    const boxes = ['Apple', 'Microsoft', 'Tesla']
-
-    cy.get('#checkbox-button-group div').each(($el, index) => {
-        cy.wrap($el).find('label').should('have.text', boxes[index])
-        .parent().find('input').should('be.visible').and('be.enabled')
-    })
+    cy.get("#checkbox-button-group div").each(($el, index) => {
+      cy.wrap($el)
+        .find("label")
+        .should("have.text", boxes[index])
+        .parent()
+        .find("input")
+        .should("be.visible")
+        .and("be.enabled");
+    });
 
     /**
-     * 1. cy.get('#checkbox-button-group div')      =>  This returns 3 of 3 
+     * 1. cy.get('#checkbox-button-group div')      =>  This returns 3 of 3
      * 2. First, validate label, because texts are inside the label
      * 3. Using .find('label') method, we get label, and validate the text
      */
   });
 
-  it.only('Assertion Practices', () => {
-
+  it.only("Assertion Practices", () => {
     /**
      * 1. Go to https://techglobal-training.com/frontend
      * 2. Navigate to 'Html Elements' card
@@ -229,38 +232,49 @@ describe("Assertions", () => {
      * 6. Enter your name and last name
      */
 
-    const names = ['Tech', 'Global']
+    const names = ["Tech", "Global"];
 
     cy.get('[data-identifier="Text Inputs"] input').each(($el, index) => {
-        cy.wrap($el).type(names[index]).should('be.enabled').and('not.have.attr', 'required')
-    })
+      cy.wrap($el)
+        .type(names[index])
+        .should("be.enabled")
+        .and("not.have.attr", "required");
+    });
 
     /**
-         * 1. Go to https://techglobal-training.com/frontend
-         * 2. Navigate to 'Html Elements' card
-         * 3. From the "Date Inputs" section
-         * 4. Validate date input 1 and date input 2 is enabled
-         * 5. Validate date input 1 and date input 2 is is not required
-         * 6. Enter dates for both date input 1 and date input 2
-         * 7. Validate value is changed to given dates.
-         */
-    const dates = ['01/02/2003', '04/05/2006']
-    cy.get('[data-identifier="Date Inputs"] input').each((el, index) => {
-      cy.wrap(el).clear().type(`${dates[index]} {enter}`).should('be.enabled')
-      .and('have.value', dates[index]).and('not.have.attr', 'required')
-    })
+     * 1. Go to https://techglobal-training.com/frontend
+     * 2. Navigate to 'Html Elements' card
+     * 3. From the "Date Inputs" section
+     * 4. Validate date input 1 and date input 2 is enabled
+     * 5. Validate date input 1 and date input 2 is is not required
+     * 6. Enter dates for both date input 1 and date input 2
+     * 7. Validate value is changed to given dates.
+     */
+
+    const dates = ["01/01/2000", "01/01/2001"];
+
+    cy.get('[data-identifier="Text Inputs"] input').each(($el, index) => {
+      cy.wrap($el)
+        .clear()
+        .type(`${dates[index]}{enter}`)
+        .should("have.value", dates[index])
+        .and("be.enabled")
+        .and("not.have.attr", "required");
+    });
 
     /**
-         * 1. Go to https://techglobal-training.com/frontend
-         * 2. Navigate to 'Html Elements' card
-         * 3. From the "Dropdowns" section
-         * 4. Validate dropdown 1 and dropdown 2 is enabled
-         * 6. Enter Microsoft for dropdown 1 and Apple for dropdown 2
-         * 7. Validate options are selected
-         */
-    const data = ['Microsoft', 'Apple']
-    cy.get('select[id^="company_dropdown"]').each((el, index) => {
-      cy.wrap(el).select(data[index]).should('be.enabled').and('have.value', data[index])
+     * 1. Go to https://techglobal-training.com/frontend
+     * 2. Navigate to 'Html Elements' card
+     * 3. From the "Dropdowns" section
+     * 4. Validate dropdown 1 and dropdown 2 is enabled
+     * 6. Enter Microsoft for dropdown 1 and Apple for dropdown 2
+     * 7. Validate options are selected
+     */
+
+    const options = ['Microsoft', 'Apple']
+
+    cy.get('#company_dropdown1, #company_dropdown2').each(($el, index) => {
+        cy.wrap($el).select(options[index]).should('be.enabled').and('have.value', options[index])
     })
-  })
+  });
 });

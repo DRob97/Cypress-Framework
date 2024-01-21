@@ -1,10 +1,11 @@
 /// <reference types="cypress"/>
 
-describe('Selectors | Pseudo Classes', () => {
+describe('Selectors | PSEUDO CLASSES', () => {
 
     beforeEach(() => {
         cy.visit('https://techglobal-training.com/frontend/html-elements')
     })
+
     it('Validate Input Elements', () => {
         cy.get('input:not(:checked)').should('have.length', 12)
         cy.get('#checkbox_1').click()
