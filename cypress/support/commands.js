@@ -17,6 +17,24 @@ Cypress.Commands.add("clickCard", (link) => {
   cy.get(".cards").contains(link).click({force: true});
 });
 
+Cypress.Commands.add('selectDropdownOption', (selector, value) => {
+  cy.get(selector).select(value)
+})
+
+/*
+/**
+ * This function takes a and b argument and returns the sum of them
+ * @param {number} a - argument 1
+ * @param {number} b - argument 2
+ *
+ *  @returns {number}
+ */
+
+Cypress.Commands.add('login', (username, password) => {
+  cy.get('#text_input1').type(username)
+  cy.get('#text_input2').type(password)
+})
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
