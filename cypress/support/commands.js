@@ -65,6 +65,9 @@ Cypress.Commands.add('validateAttr', {prevSubject: true}, (subject, expectedAttr
 // -- This is a dual command --
 // Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
 //
+// Cypress.Commands.add('', {prevSubject: optional}, () => {
+
+// })
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
