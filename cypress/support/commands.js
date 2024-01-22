@@ -35,10 +35,32 @@ Cypress.Commands.add('login', (username, password) => {
   cy.get('#text_input2').type(password)
 })
 
+Cypress.Commands.add('haveText', (locator, expectedValue) => {
+  cy.get(locator).should('have.text', expectedValue)
+})
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
+Cypress.Commands.add('logText', {prevSubject: true}, (subject) => {
+  const text = subject.text()
+
+  cy.log(`My text is: ${text}`)
+
+  return cy.wrap(subject)
+})
+
+Cypress.Commands.add('haveText', {prevSubject: true}, (subject, expectedValue) => {
+  const text = subject.text()
+
+  expect(text).to.equal(expectedValue)
+  // Below is better
+  // cy.wrap(subject).should('eq', expectedValue)
+})
+
+Cypress.Commands.add('validateAttr', {prevSubject: true}, (subject, expectedAttr, expectedValue) => {
+  cy.wrap(subject).should('have.attr', expectedAttr, expectedValue)
+})
 //
 // -- This is a dual command --
 // Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
