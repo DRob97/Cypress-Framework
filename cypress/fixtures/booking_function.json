@@ -1,0 +1,15 @@
+{
+    "labels": ["Trip type", "Cabin Class", "From", "To", "Depart", "Return", "Number of passengers", ["Passenger 1", "Passenger 2"]],
+    "radioButtons": ["One way", "Round trip"],
+    "bookText": "BOOK",
+    "cabinClass": ["Select cabin class...", "Premium Economy", "Business", "First"],
+    "origin": ["Select state...", "IL", "CA", "NY"],
+    "destination": ["Select state...", "FL", "IL", "TX"],
+    "originFull": ["Select state...", "Illinois", "California", "New York"],
+    "destinationFull": ["Select state...", "Florida", "Illinois", "Texas"],
+    "numberPassengers": [1, 2],
+    "ageRange": ["Adult (16-64)", "Senior (65+)", "Young Adult (12-15)", "Child (2-11)", "Infant in seat (under 2)"],
+    "onePassOneWay": ["One way", "Business", "Illinois", "Florida", 1, "Senior (65+)"],
+    "onePassRound": ["Round trip", "First", "California", "Illinois", 1, "Adult (16-64)"],
+    "twoPass": ["One way", "Premium Economy", "New York", "Texas", 2, ["Adult (16-64)", "Child (2-11)"]]
+}
