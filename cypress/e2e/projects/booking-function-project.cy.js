@@ -1,5 +1,5 @@
 /// <reference types="cypress"/>
-import Booking from "../../pages/BookingPage";
+import BookingFunction from "../../pages/BookingFunctionPage";
 
 describe("Booking Function Project", () => {
 
@@ -10,6 +10,8 @@ describe("Booking Function Project", () => {
 
         cy.clickCard('Project - Booking Function');
     })
+
+    const bookingFunction = new BookingFunction();
 
     it('Tests 1 & 2 go in Here', function() {
 
