@@ -1,19 +1,19 @@
 /// <reference types="cypress"/>
 
-describe("Interacting Multiple Tabs", () => {
+describe('Interacting Multiple Tabs', () => {
   beforeEach(() => {
     // This will fail if the page doesn't send text/html with 200 status
-    cy.visit(`${Cypress.env("SITE_URL")}/frontend`);
-    cy.clickCard("Multiple Windows");
-  });
+    cy.visit(`${Cypress.env('SITE_URL')}/frontend`)
+    cy.clickCard('Multiple Windows')
+  })
 
-  it("Multiple Tabs", () => {
-    cy.get("#apple").should("have.attr", "target", "_blank");
+  it('Multiple Tabs', () => {
+    cy.get('#apple').should('have.attr', 'target', '_blank')
 
-    cy.get("#apple").invoke("removeAttr", "target").click();
+    cy.get('#apple').invoke('removeAttr', 'target').click()
 
-    cy.title().should("contain", "Apple");
-  });
+    cy.title().should('contain', 'Apple')
+  })
 
   /**
    * Go to https://techglobal-training.com/frontend/
@@ -26,13 +26,13 @@ describe("Interacting Multiple Tabs", () => {
 
   it('Multiple Tabs Test', () => {
 
-    cy.get("#apple").then(($el) => {
+    cy.get('#apple').then(($el) => {
         $el.text().toLowerCase()
     })
 
-    cy.get("#apple").invoke("removeAttr", "target").click()
+    cy.get('#apple').invoke('removeAttr', 'target').click()
 
-    cy.title().should("contain", "Apple")
+    cy.title().should('contain', 'Apple')
 
     cy.go(-1)
 
@@ -42,4 +42,4 @@ describe("Interacting Multiple Tabs", () => {
         cy.wrap(title.toLowerCase()).should('contain', 'techglobal')
     })
   })
-});
+})

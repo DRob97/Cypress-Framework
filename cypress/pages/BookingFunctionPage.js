@@ -1,5 +1,5 @@
-import { get } from "cypress/types/jquery";
-import BasePage from "./BasePage";
+// import { get } from 'cypress/types/jquery'
+import BasePage from './BasePage'
 
 class BookingFunction extends BasePage{
     // Locators
@@ -120,7 +120,7 @@ class BookingFunction extends BasePage{
     }
 }
 
-export default BookingFunction;
+export default BookingFunction
 
 /** Notes for booking_function.json file:
  *  All three passenger scenarios need dates added, unsure how at this time

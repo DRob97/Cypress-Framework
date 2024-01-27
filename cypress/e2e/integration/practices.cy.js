@@ -1,19 +1,19 @@
-describe("Practice", () => {
+describe('Practice', () => {
     beforeEach(() => {
-      cy.clickCard("Dropdowns");
-    });
+      cy.clickCard('Dropdowns')
+    })
   
-    it("Practice Example", function () {
-      cy.get("#product_dropdown").select(2);
+    it('Practice Example', function () {
+      cy.get('#product_dropdown').select(2)
   
-      cy.get(".react-dropdown-select-content").click();
+      cy.get('.react-dropdown-select-content').click()
   
-      cy.get(`[aria-label="Delivery"]`).click();
+      cy.get('[aria-label="Delivery"]').click()
   
-      cy.visit("https://techglobal-training.netlify.app/frontend/project-3");
+      cy.visit('https://techglobal-training.netlify.app/frontend/project-3')
   
-      cy.contains(".label", "Cabin Class").next().children().select("Business");
-    });
+      cy.contains('.label', 'Cabin Class').next().children().select('Business')
+    })
   
     /**
      * Test Case: Validate Dropdowns Functionality on TechGlobal Training Page
@@ -26,22 +26,22 @@ describe("Practice", () => {
      * Validate result message displays "Your Green MacBook Pro 13 will be delivered to you."
      */
   
-    it("Practice Example 2", function () {
-      const product = "MacBook Pro 13";
-      const color = "Silver";
+    it('Practice Example 2', function () {
+      const product = 'MacBook Pro 13'
+      const color = 'Silver'
       const shippingOption = 'Pick up'
       const expectedMessage = shippingOption === 'Delivery'
       ? `Your ${color} ${product} will be delivered to you.`
       : `Your ${color} ${product} is ready to be picked up.`
   
-      cy.get("#product_dropdown").select(product);
-      cy.get("#color_dropdown").select(color);
+      cy.get('#product_dropdown').select(product)
+      cy.get('#color_dropdown').select(color)
   
-      cy.get(".react-dropdown-select-content").click();
-      cy.get(`[aria-label="${shippingOption}"]`).click();
+      cy.get('.react-dropdown-select-content').click()
+      cy.get(`[aria-label="${shippingOption}"]`).click()
   
-      cy.get("#submit").click();
+      cy.get('#submit').click()
   
-      cy.get("#result").should("have.text", expectedMessage );
-    });
-  });
+      cy.get('#result').should('have.text', expectedMessage )
+    })
+  })

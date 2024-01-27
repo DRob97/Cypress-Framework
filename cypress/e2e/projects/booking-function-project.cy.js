@@ -1,17 +1,17 @@
 /// <reference types="cypress"/>
-import BookingFunction from "../../pages/BookingFunctionPage";
+import BookingFunction from '../../pages/BookingFunctionPage'
 
-describe("Booking Function Project", () => {
+describe('Booking Function Project', () => {
 
     beforeEach(() => {
         // cy.fixture("booking_function").then(function(data) {
         //     this.something = data.something
         // })
 
-        cy.clickCard('Project - Booking Function');
+        cy.clickCard('Project - Booking Function')
     })
 
-    const bookingFunction = new BookingFunction();
+    const bookingFunction = new BookingFunction()
 
     it('Tests 1 & 2 go in Here', function() {
 

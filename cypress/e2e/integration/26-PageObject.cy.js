@@ -1,7 +1,7 @@
 /// <reference types="cypress"/>
-import LoginPage from "../../pages/LoginPage";
+import LoginPage from '../../pages/LoginPage'
 
-describe("Login page test", () => {
+describe('Login page test', () => {
   beforeEach(() => {
 
     cy.fixture('example').then(function(data) {
@@ -10,8 +10,8 @@ describe("Login page test", () => {
     })
 
 
-    cy.clickCard("Project - Login Function");
-  });
+    cy.clickCard('Project - Login Function')
+  })
 
 //   it("Login without POM", () => {
 //     cy.get("#username").type(Cypress.env('UI_USERNAME'));
@@ -25,15 +25,15 @@ describe("Login page test", () => {
 
   const loginPage = new LoginPage()
 
-  it("Login with POM", function() {
+  it('Login with POM', {tags: '@smoke'}, function() {
 
     // loginPage.userLogin(Cypress.env('UI_USERNAME'), Cypress.env('UI_PASSWORD'))
     loginPage.userLogin(this.username, this.password)
 
-    loginPage.getSuccessMessage().should("be.visible");
+    loginPage.getSuccessMessage().should('be.visible')
 
     loginPage.getTechGlobalLogo()
-  });
+  })
 
 
   /**
@@ -58,4 +58,4 @@ describe("Login page test", () => {
     loginPage.getSuccessMessage().should("be.visible");
   });
    */
-});
+})

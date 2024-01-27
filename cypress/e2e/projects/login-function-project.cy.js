@@ -75,8 +75,8 @@ describe('Login Function Project',() => {
 
         // Validate label of email input box
         cy.get('label[for="email"]').then((element) => {
-            const label = element.text();
-            expect(label.trim()).to.equal("Enter your email address and we'll send you a link to reset your password.")
+            const label = element.text()
+            expect(label.trim()).to.equal('Enter your email address and we\'ll send you a link to reset your password.')
         })
         
         // Validate "SUBMIT" button is displayed, clickable, and has text "SUBMIT"
