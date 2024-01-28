@@ -1,5 +1,10 @@
 name: End-to-end tests
 on: push
+# on:
+#   push: 
+#   schedule:
+#     - cron: '50 12 * * 6'
+
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
@@ -14,5 +19,5 @@ jobs:
         with:
           # browser: chrome
           # headless: true
-          # spec: spec goes here
+          # spec: cypress/e2e/integration/25-Project02Demo.cy.js
           command: npm run test:chrome
