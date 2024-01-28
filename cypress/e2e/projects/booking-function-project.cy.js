@@ -87,4 +87,12 @@ describe('Booking Function Project', function() {
             }
         })
     })
+
+    // Below does not work
+    const date = new Date()
+    const today = new Date(date.getMonth(), date.getDate(), date.getFullYear())
+
+    it.only('Test Setting Dynamic Dates', () => {
+        bookingFunction.getDatePickers().first().select(today)
+    })
 })
