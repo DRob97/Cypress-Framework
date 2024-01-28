@@ -6,118 +6,68 @@ class BookingFunction extends BasePage{
 
     // Should be able to get all labels with 1 cy.get, and loop through them in the test
     // Same for inputs
+
     getLabels(){
-        return cy.get('.label')
-    }
-    
-    getOneWay(){
-        return cy.get('[value="One way"]')
+        return cy.get('.field > label')
     }
 
-    getRoundTrip(){
-        return cy.get('[value="Round trip"]')
+    getDropDowns(){
+        return cy.get('.select > select')
     }
 
-    // getCabinClassLabel(){
-    //     return cy.get('.label').eq(1)   // Revisit this if these don't work
-    // }
-
-    getCabinClassDropdown(){
-        return cy.contains('Cabin Class').next()
+    getDatePickers(){
+        return cy.get('div > input')
     }
 
-    // getFromLabel(){
-    //     return cy.get('.label').eq(2)   //
-    // }
-
-    getFromDropdown(){
-        return cy.contains('From').next()
-    }
-
-    // getToLabel(){
-    //     return cy.get('.label').eq(3)   //
-    // }
-
-    getToDropdown(){
-        return cy.contains('To').next()
-    }
-
-    // getDepartLabel(){
-    //     return cy.get('.label').eq(4)   //
-    // }
-
-    getDepartDropdown(){                // Needs attention (not a dropdown)
-        return cy.contains('Depart').next()
-    }
-
-    // getReturnLabel(){
-    //     return cy.get('.label').eq(5)   //
-    // }
-
-    getReturnDropdown(){                // Needs attention, not a dropdown
-        return cy.contains('Return').next()
-    }
-
-    // getNumOfPassLabel(){
-    //     return cy.get('.label').eq(6)   //
-    // }
-
-    getNumOfPassDropdown(){
-        return cy.contains('Number of passengers').next()
-    }
-
-    // getPassOneLabel(){                  // Needs attention, more dynamic
-    //     return cy.get('.label').eq(7)   //
-    // }
-
-    getPassOneDropdown(){               // Needs attention, more dynamic
-        return cy.contains('Passenger 1').next()
-    }
-
-    // getPassTwoLabel(){                  // Needs attention, more dynamic
-    //     return cy.get('.label').eq(8)   //
-    // }
-
-    getPassTwoDropdown(){               // Needs attention, more dynamic
-        return cy.contains('Passenger 2').next()
+    getRadioButtons(){
+        return cy.get('.mr-1')
     }
 
     getBookButton(){
         return cy.get('button[type]')
     }
+    
+    // getOneWay(){
+    //     return cy.get('[value="One way"]')
+    // }
+
+    // getRoundTrip(){
+    //     return cy.get('[value="Round trip"]')
+    // }
+
+    
 
     // Methods - NO ASSERTIONS
     clickSubmit(){
         this.getBookButton().click()
     }
 
-    selectCabinClass(input){
-        this.getCabinClassDropdown().select(input)
-    }
+    // selectCabinClass(input){
+    //     this.getCabinClassDropdown().select(input)
+    // }
 
-    selectOrigin(state){
-        this.getFromDropdown.select(state)
-    }
+    // selectOrigin(state){
+    //     this.getFromDropdown.select(state)
+    // }
+    // selectDestination(state){
+    //     this.getToDropdown.select(state)
+    // }
 
-    selectDestination(state){
-        this.getToDropdown.select(state)
-    }
+    // selectDepartureDate(date){                      // Needs attention, not a dropdown
+    //     this.getDepartDropdown().select(date)
+    // }
 
-    selectDepartureDate(date){                      // Needs attention, not a dropdown
-        this.getDepartDropdown().select(date)
-    }
+    // selectReturnDate(date){                         // Needs attention, not a dropdown
+    //     this.getReturnDropdown().select(date)
+    // }
 
-    selectReturnDate(date){                         // Needs attention, not a dropdown
-        this.getReturnDropdown().select(date)
-    }
+    // selectNumOfPass(num){
+    //     this.getNumOfPassDropdown().select(num)
+    // }
 
-    selectNumOfPass(num){
-        this.getNumOfPassDropdown().select(num)
-    }
-
-    selectPassengerAge(str){                        // Needs attention, more dynamic
-        this.getPassOneDropdown.select(str)
-    }
+    // selectPassengerAge(str){                        // Needs attention, more dynamic
+    //     this.getPassOneDropdown.select(str)
+    // }
 }
 
 export default BookingFunction

@@ -7,7 +7,7 @@ module.exports = defineConfig({
   viewportHeight: 1440,
   viewportWidth: 2560,
   chromeWebSecurity: false,
-  retries: 2,
+  // retries: 2,
   env: {
     SITE_URL: process.env.UI_URL
   },
