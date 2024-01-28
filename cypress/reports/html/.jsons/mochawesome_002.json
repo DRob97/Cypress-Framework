@@ -1,0 +1,167 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-01-28T17:58:10.890Z",
+    "end": "2024-01-28T17:58:26.208Z",
+    "duration": 15318,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4a7a61b0-80ce-4115-9e52-15fff6163603",
+      "title": "",
+      "fullFile": "cypress\\e2e\\integration\\03-Selectors-ID.cy.js",
+      "file": "cypress\\e2e\\integration\\03-Selectors-ID.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6f3a0437-118d-40b8-a345-f7866f59cbbb",
+          "title": "Selector | ID",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validate TechGlobal Logo navigates user back to home page",
+              "fullTitle": "Selector | ID Validate TechGlobal Logo navigates user back to home page",
+              "timedOut": null,
+              "duration": 2264,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress\\\\e2e\\\\integration\\\\03-Selectors-ID.cy.js\"\n}",
+              "code": "// your code goes here\ncy.visit('https://techglobal-training.com/');\ncy.visit('https://techglobal-training.com/frontend');\ncy.get('#logo').click();\ncy.url().should('eq', 'https://techglobal-training.com/');",
+              "err": {},
+              "uuid": "b7c76bd2-3e73-4b0f-a230-399c028f97c2",
+              "parentUUID": "6f3a0437-118d-40b8-a345-f7866f59cbbb",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate Html Elements Heading",
+              "fullTitle": "Selector | ID Validate Html Elements Heading",
+              "timedOut": null,
+              "duration": 3471,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress\\\\e2e\\\\integration\\\\03-Selectors-ID.cy.js\"\n}",
+              "code": "cy.visit('https://techglobal-training.com/frontend');\ncy.get('#card-1').click();\ncy.get('#main_heading').should('have.text', 'Html Elements');",
+              "err": {},
+              "uuid": "d06c7e06-a0f8-4008-b046-32064eb2b2f1",
+              "parentUUID": "6f3a0437-118d-40b8-a345-f7866f59cbbb",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate Paragraph Elements",
+              "fullTitle": "Selector | ID Validate Paragraph Elements",
+              "timedOut": null,
+              "duration": 3693,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress\\\\e2e\\\\integration\\\\03-Selectors-ID.cy.js\"\n}",
+              "code": "cy.visit('https://techglobal-training.com/frontend');\ncy.get('#card-1').click();\ncy.get('#hello_paragraph').should('be.visible');\ncy.get('#hello_paragraph').should('have.text', 'Hello World!');\ncy.get('#testing_paragraph').should('be.visible');\ncy.get('#testing_paragraph').should('have.text', 'I like automation testing!');",
+              "err": {},
+              "uuid": "d399e007-de98-42af-9d4c-ab8c35c3a689",
+              "parentUUID": "6f3a0437-118d-40b8-a345-f7866f59cbbb",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate Paragraph Elements with Alias",
+              "fullTitle": "Selector | ID Validate Paragraph Elements with Alias",
+              "timedOut": null,
+              "duration": 3864,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress\\\\e2e\\\\integration\\\\03-Selectors-ID.cy.js\"\n}",
+              "code": "cy.visit('https://techglobal-training.com/frontend');\ncy.get('#card-1').click();\ncy.get('#hello_paragraph').as('first_p');\ncy.get('#testing_paragraph').as('second_p');\ncy.get('@first_p').should('be.visible');\ncy.get('@second_p').should('be.visible');\ncy.get('@first_p').should('have.text', 'Hello World!');\ncy.get('@second_p').should('have.text', 'I like automation testing!');",
+              "err": {},
+              "uuid": "78776f0f-4974-4150-a16a-a2b72d9b96a1",
+              "parentUUID": "6f3a0437-118d-40b8-a345-f7866f59cbbb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b7c76bd2-3e73-4b0f-a230-399c028f97c2",
+            "d06c7e06-a0f8-4008-b046-32064eb2b2f1",
+            "d399e007-de98-42af-9d4c-ab8c35c3a689",
+            "78776f0f-4974-4150-a16a-a2b72d9b96a1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13292,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportPageTitle": "custom-title",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
