@@ -2,6 +2,7 @@ const { defineConfig } = require('cypress')
 require('dotenv').config()
 
 module.exports = defineConfig({
+  projectId: 'z12j6i',
   defaultCommandTimeout: 4000,
 
   viewportHeight: 1440,

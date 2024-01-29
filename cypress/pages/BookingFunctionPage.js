@@ -26,48 +26,25 @@ class BookingFunction extends BasePage{
     getBookButton(){
         return cy.get('button[type]')
     }
+
+    // Locators for submit message
+
+    getDepartHeading(){
+        return cy.contains('DEPART')
+    }
+
+    getReturnHeading(){
+        return cy.contains('RETURN')
+    }
+
+    getPassengerInfo(){
+        return cy.get('.mt-4 > p')
+    }
     
-    // getOneWay(){
-    //     return cy.get('[value="One way"]')
-    // }
-
-    // getRoundTrip(){
-    //     return cy.get('[value="Round trip"]')
-    // }
-
-    
-
     // Methods - NO ASSERTIONS
     clickSubmit(){
         this.getBookButton().click()
     }
-
-    // selectCabinClass(input){
-    //     this.getCabinClassDropdown().select(input)
-    // }
-
-    // selectOrigin(state){
-    //     this.getFromDropdown.select(state)
-    // }
-    // selectDestination(state){
-    //     this.getToDropdown.select(state)
-    // }
-
-    // selectDepartureDate(date){                      // Needs attention, not a dropdown
-    //     this.getDepartDropdown().select(date)
-    // }
-
-    // selectReturnDate(date){                         // Needs attention, not a dropdown
-    //     this.getReturnDropdown().select(date)
-    // }
-
-    // selectNumOfPass(num){
-    //     this.getNumOfPassDropdown().select(num)
-    // }
-
-    // selectPassengerAge(str){                        // Needs attention, more dynamic
-    //     this.getPassOneDropdown.select(str)
-    // }
 }
 
 export default BookingFunction
