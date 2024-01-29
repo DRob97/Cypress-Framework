@@ -1,3 +1,9 @@
+Date.prototype.tomorrow = function() {
+    let date = new Date(this.valueOf())
+    date.setDate(date.getDate() + 1)
+    return date
+}
+
 Date.prototype.nextWeek = function() {
     let date = new Date(this.valueOf())
     date.setDate(date.getDate() + 7)

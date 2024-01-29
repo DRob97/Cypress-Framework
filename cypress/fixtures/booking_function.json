@@ -1,9 +1,9 @@
 {
     "dropdowns": ["1", "Adult (16-64)"],
-    "onePassOneWay": ["One way", [ "Business", "Illinois", "Florida", "1", "Senior (65+)" ], "02/04/2024"],
-    "trip1Confirmation": [["IL to FL", "Sun Feb 04 2024"], ["Number of Passengers: 1", "Passenger 1: Senior (65+)", "Cabin class: Business"]],
-    "onePassRound": ["Round trip", [ "First", "California", "Illinois", "1", "Adult (16-64)" ], ["02/04/2024", "02/25/2024"]],
-    "trip2Confirmation": [["CA to IL", "Sun Feb 04 2024"], ["IL to CA", "Sun Feb 25 2024"], ["Number of Passengers: 1", "Passenger 1: Adult (16-64)", "Cabin class: First"]],
-    "twoPass": ["One way", [ "Premium Economy", "New York", "Texas", "2", "Adult (16-64)", "Child (2-11)" ], "02/04/2024"],
-    "trip3Confirmation": [["NY to TX", "Sun Feb 04 2024"], ["Number of Passengers: 2", "Passenger 1: Adult (16-64)", "Passenger 2: Child (2-11)", "Cabin class: Premium Economy"]]
+    "onePassOneWay": ["One way", [ "Business", "Illinois", "Florida", "1", "Senior (65+)" ]],
+    "trip1Confirmation": ["IL to FL", ["Number of Passengers: 1", "Passenger 1: Senior (65+)", "Cabin class: Business"]],
+    "onePassRound": ["Round trip", [ "First", "California", "Illinois", "1", "Adult (16-64)" ]],
+    "trip2Confirmation": ["CA to IL", "IL to CA", ["Number of Passengers: 1", "Passenger 1: Adult (16-64)", "Cabin class: First"]],
+    "twoPass": ["One way", [ "Premium Economy", "New York", "Texas", "2", "Adult (16-64)", "Child (2-11)" ]],
+    "trip3Confirmation": ["NY to TX", ["Number of Passengers: 2", "Passenger 1: Adult (16-64)", "Passenger 2: Child (2-11)", "Cabin class: Premium Economy"]]
 }

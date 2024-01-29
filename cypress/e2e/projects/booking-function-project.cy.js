@@ -17,6 +17,50 @@ describe('Booking Function Project', function() {
 
         cy.clickCard('Project - Booking Function')
     })
+    Date.prototype.tomorrow = function() {
+        let date = new Date(this.valueOf())
+        date.setDate(date.getDate() + 1)
+        return date
+    }
+
+    Date.prototype.nextWeek = function() {
+        let date = new Date(this.valueOf())
+        date.setDate(date.getDate() + 7)
+        return date
+    }
+    
+    Date.prototype.nextMonth = function() {
+        let date = new Date(this.valueOf())
+        date.setDate(date.getDate() + 28)
+        return date
+    }
+    
+    function returnDateNumbersSlashes(aDate){
+        const step1 = aDate.toDateString()
+        const step2 = step1.slice(4)
+        const step3 = step2.split(' ')
+    
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May',
+        'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+        
+        let monthNum
+        let dayNum = step3[1]
+        let yearNum = step3[2]
+    
+        months.forEach((month, index) =>{
+            if(step3[0] === month) monthNum = index + 1
+        })
+        
+        monthNum = monthNum.toString()
+        
+        if(monthNum < 10) return `0${monthNum}/${dayNum}/${yearNum}`
+        else return `${monthNum}/${dayNum}/${yearNum}`
+    }
+    
+    function returnDateWrittenAbbreviated(aDate){
+        const step1 = aDate.toDateString()
+        return step1
+    }
 
     const bookingFunction = new BookingFunction()
 
@@ -75,6 +119,9 @@ describe('Booking Function Project', function() {
     })
 
     it('Test 03', function() {
+        const todaysDate = bookingFunction.setTodaysDate()
+        const departureDate = todaysDate.nextWeek()
+
         bookingFunction.getRadioButtons().parent().each(function($el){
             const el = $el.text()
             if(el === this.onePassOneWay[0]){
@@ -82,7 +129,7 @@ describe('Booking Function Project', function() {
             }
         })
 
-        bookingFunction.getDatePickers().first().clear().type(this.onePassOneWay[2])
+        bookingFunction.getDatePickers().first().clear().type(returnDateNumbersSlashes(departureDate))
 
         bookingFunction.getDropDowns().each(function($el, index){
             cy.wrap($el).select(this.onePassOneWay[1][index])
@@ -91,8 +138,8 @@ describe('Booking Function Project', function() {
         bookingFunction.clickSubmit()
 
         bookingFunction.getDepartHeading().should('exist')
-        .next().should('exist').and('have.text', this.trip1Confirmation[0][0])
-        .next().should('exist').and('have.text', this.trip1Confirmation[0][1])
+        .next().should('exist').and('have.text', this.trip1Confirmation[0])
+        .next().should('exist').and('have.text', returnDateWrittenAbbreviated(departureDate))
 
         bookingFunction.getPassengerInfo().each(function($el, index) {
             cy.wrap($el).should('exist').and('have.text', this.trip1Confirmation[1][index])
@@ -100,6 +147,10 @@ describe('Booking Function Project', function() {
     })
 
     it('Test 04', function() {
+        const todaysDate = bookingFunction.setTodaysDate()
+        const departureDate = todaysDate.nextWeek()
+        const returnDate = todaysDate.nextMonth()
+
         bookingFunction.getRadioButtons().parent().each(function($el){
             const el = $el.text()
             if(el === this.onePassRound[0]){
@@ -107,8 +158,8 @@ describe('Booking Function Project', function() {
             }
         })
 
-        bookingFunction.getDatePickers().first().clear().type(this.onePassRound[2][0])
-        bookingFunction.getDatePickers().last().clear().type(this.onePassRound[2][1])
+        bookingFunction.getDatePickers().first().clear().type(returnDateNumbersSlashes(departureDate))
+        bookingFunction.getDatePickers().last().clear().type(returnDateNumbersSlashes(returnDate))
 
         bookingFunction.getDropDowns().each(function($el, index){
             cy.wrap($el).select(this.onePassRound[1][index])
@@ -117,12 +168,12 @@ describe('Booking Function Project', function() {
         bookingFunction.clickSubmit()
 
         bookingFunction.getDepartHeading().should('exist')
-        .next().should('exist').and('have.text', this.trip2Confirmation[0][0])
-        .next().should('exist').and('have.text', this.trip2Confirmation[0][1])
+        .next().should('exist').and('have.text', this.trip2Confirmation[0])
+        .next().should('exist').and('have.text', returnDateWrittenAbbreviated(departureDate))
         
         bookingFunction.getReturnHeading().should('exist')
-        .next().should('exist').and('have.text', this.trip2Confirmation[1][0])
-        .next().should('exist').and('have.text', this.trip2Confirmation[1][1])
+        .next().should('exist').and('have.text', this.trip2Confirmation[1])
+        .next().should('exist').and('have.text', returnDateWrittenAbbreviated(returnDate))
 
         bookingFunction.getPassengerInfo().each(function($el, index) {
             cy.wrap($el).should('exist').and('have.text', this.trip2Confirmation[2][index])
@@ -130,6 +181,9 @@ describe('Booking Function Project', function() {
     })
 
     it('Test 05', function() {
+        const todaysDate = bookingFunction.setTodaysDate()
+        const departureDate = todaysDate.tomorrow()
+
         bookingFunction.getRadioButtons().parent().each(function($el){
             const el = $el.text()
             if(el === this.twoPass[0]){
@@ -137,7 +191,7 @@ describe('Booking Function Project', function() {
             }
         })
 
-        bookingFunction.getDatePickers().first().clear().type(this.twoPass[2])
+        bookingFunction.getDatePickers().first().clear().type(returnDateNumbersSlashes(departureDate))
        
 
         for(let i = 0; i <= 1; i++){
@@ -149,19 +203,11 @@ describe('Booking Function Project', function() {
         bookingFunction.clickSubmit()
 
         bookingFunction.getDepartHeading().should('exist')
-        .next().should('exist').and('have.text', this.trip3Confirmation[0][0])
-        .next().should('exist').and('have.text', this.trip3Confirmation[0][1])
+        .next().should('exist').and('have.text', this.trip3Confirmation[0])
+        .next().should('exist').and('have.text', returnDateWrittenAbbreviated(departureDate))
 
         bookingFunction.getPassengerInfo().each(function($el, index) {
             cy.wrap($el).should('exist').and('have.text', this.trip3Confirmation[1][index])
         })
     })
 })
-
-// const onePassOneWay = ['One way', 'Business', 'Illinois', 'Florida', 1, 'Senior (65+)']
-    // const onePassRound = ['Round trip', 'First', 'California', 'Illinois', 1, 'Adult (16-64)']
-    // const twoPass = ['One way', 'Premium Economy', 'New York', 'Texas', 2, ['Adult (16-64)', 'Child (2-11)']]
-
-    // const trips = [onePassOneWay, onePassRound, twoPass]
-
-    // const trips = [this.onePassOneWay, this.onePassRound, this.twoPass]
