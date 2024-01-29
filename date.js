@@ -1,16 +1,16 @@
 Date.prototype.nextWeek = function() {
-    var date = new Date(this.valueOf())
+    let date = new Date(this.valueOf())
     date.setDate(date.getDate() + 7)
     return date
 }
 
 Date.prototype.nextMonth = function() {
-    var date = new Date(this.valueOf())
+    let date = new Date(this.valueOf())
     date.setDate(date.getDate() + 28)
     return date
 }
 
-function returnDesiredDateFormat(aDate){
+function returnDateNumbersSlashes(aDate){
     const step1 = aDate.toDateString()
     const step2 = step1.slice(4)
     const step3 = step2.split(' ')
@@ -32,10 +32,19 @@ function returnDesiredDateFormat(aDate){
     else return `${monthNum}/${dayNum}/${yearNum}`
 }
 
+function returnDateWrittenAbbreviated(aDate){
+    const step1 = aDate.toDateString()
+    return step1
+}
+
 const currentDate = new Date()
 const departureDate = currentDate.nextWeek()
 const returnDate = currentDate.nextMonth()
 
-console.log(returnDesiredDateFormat(currentDate))
-console.log(returnDesiredDateFormat(departureDate))
-console.log(returnDesiredDateFormat(returnDate))
+console.log(returnDateNumbersSlashes(currentDate))
+console.log(returnDateNumbersSlashes(departureDate))
+console.log(returnDateNumbersSlashes(returnDate))
+
+console.log(returnDateWrittenAbbreviated(currentDate))
+console.log(returnDateWrittenAbbreviated(departureDate))
+console.log(returnDateWrittenAbbreviated(returnDate))

@@ -45,6 +45,8 @@ class BookingFunction extends BasePage{
     clickSubmit(){
         this.getBookButton().click()
     }
+
+    
 }
 
 export default BookingFunction
